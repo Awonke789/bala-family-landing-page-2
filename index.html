@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!-- SITE TITLE -->
+	<title>Bala Family - Coming Soon!!</title>
+	<!-- Latest Bootstrap min CSS -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+	<!-- Font Awesome CSS -->
+	<!--<link rel="stylesheet" href="assets/fonts/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="assets/fonts/themify-icons.css">
+	<!--- owl carousel Css-->
+	<link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+	<!--fonts icons Css-->
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<!--prettyPhoto css-->
+	<link href="assets/css/prettyPhoto.css" rel="stylesheet">
+	<!-- animate CSS -->
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- Slick css -->
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="assets/css/menu.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+<!-- Countdown or timer styling */ -->
+<!-- Makes timer numbers white and readable on dark background */ -->
+		<style>
+    .countdown-timer div div span {
+        color: white;
+        font-size: 32px;
+    }
+    .countdown-timer div div {
+        color: white;
+    }
+</style>
+
+<!-- navigation styles */ -->
+<!-- Removed the line underneath navibar, makes navbar transparent so background shows through -->
+<style>
+    .site-navbar {
+        border-bottom: none;
+        background-color: transparent;
+    }
+    .site-navbar .site-logo a, .site-navbar .site-logo {
+        color: white;
+    }
+</style>
+<style>
+    .site-navbar .container .row {
+        justify-content: flex-start !important;
+    }
+    .site-logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    .hero-text {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -30px;
+}
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-text {
+    margin-top: -150px important;
+}
+.countdown-timer {
+    margin-top: 10px;
+}
+/* positioning of social media icons */
+/* Fixes icons to middle-right hand side of the screen */
+/* Use transform: translateY(-50%) to perfectly center vertically */
+.social-top-right {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9999;
+}
+.social-top-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.social-top-right li {
+    margin-bottom: 20px;
+}
+.social-top-right a {
+    color: white;
+    font-size: 28px;
+}
+#home .container {
+    position: relative;
+    top: -40px;
+}
+.hero-text h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.hero-text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+/* fullscreen layout*/
+/* prevents scrolling - everything fits on one screen */
+/* overflow: hidden removes scrollbars */
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+}
+.hero-text {
+    transform: translateY(0px);
+}
+.countdown-timer div div {
+    transition: transform 0.3s ease;
+}
+.countdown-timer div div:hover {
+    transform: scale(1.05);
+}
+.countdown-timer span:first-child {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.hero-text h2, .hero-text p {
+    font-family: 'Georgia', serif;
+}
+.countdown-timer, .countdown-timer * {
+    font-family: 'Georgia', serif;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Modern Icons for Social Media -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body data-spy="scroll" data-offset="80">
+    
+<!-- for logo to not move and stay in place, z-index = stay above everything -->
+<!-- logo - top Left -->
+     <div style="position: fixed; top: 50px; left: 20px; z-index: 9999;">
+    <div style="color: white; font-size: 30px; font-weight: bold; letter-spacing: 4px; text-transform: capitalize;">The Bala Family</div>
+</div>
+
+<!-- 3-bar menu icon - top right -->
+<!-- Click opens popup with about text and email form -->
+<div class="menu-icon" onclick="openMenu()" style="position: fixed; top: 50px; right: 20px; z-index: 10000; cursor: pointer;">
+    <i class="fa fa-bars" style="color: white; font-size: 32px;"></i>
+</div>
+
+<!-- social media icons - middle right -->
+<!-- Instagram, TikTok, Facebook - to open in new tabs -->
+<!-- used font awesome 6 brand icons (fab class) -->
+<div class="social-top-right">
+    <ul>
+        <li><a href="https://www.instagram.com/thebalafamilyofficial" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.tiktok.com/@thebalafamilyofficial" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="https://www.facebook.com/share/1LjXENo9iF/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+</div>
+	<!-- START PRELOADER -->
+	<div class="preloader">
+		<div class="status">
+			<div class="status-mes"></div>
+		</div>
+	</div>
+	<!-- END PRELOADER -->
+
+	<!-- START NAVBAR -->
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close mt-3">
+				<span class="icon-close2 js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+		<div class="container">
+			<div class="row align-items-center">
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+					<nav class="site-navigation position-relative text-right" role="navigation">
+					</nav>
+				</div>
+				<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+					<a href="#" class="site-menu-toggle js-menu-toggle float-right"><span
+							class="icon-menu h3"></span></a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- END NAVBAR-->
+
+	<!-- START HOME -->
+<section id="home" class="home_bg" style="background-image: url('assets/img/bg/bala-family.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh;">
+    <!-- main hero section -->
+<!-- background image = family photo covers the full screen -->
+<!-- Headline, subheadline, and countdown timer appear here -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 text-center">
+                <div class="hero-text">
+                    <h2>The Bala Family Legacy Continues...</h2>
+                    <p>Something meaningful is on the way. Join us as we step into this next chapter.</p>
+                    
+                    <!-- COUNTDOWN TIMER -->
+<!-- approaching date: 1st May 2026 (update in JavaScript below) -->
+<!-- Days are large, Hours/Mins/Secs are smaller underneath -->
+                    <div class="countdown-timer" style="text-align: center; margin-top: 40px;">
+    <h3 style="color: white; font-size: 20px; letter-spacing: 2px; margin-bottom: 30px;">LAUNCHING IN</h3>
+    <div>
+        <div style="margin-bottom: 40px; justify-content: center; text-align: center;">
+            <span id="days" style="font-size: 72px; font-weight: bold; color: white;">00</span>
+            <span style="color: white; font-size: 18px; margin-left: 8px;">Days</span>
+        </div>
+        <div style="display: flex; gap: 40px; justify-content: center;">
+            <div>
+                <span id="hours" style="font-size: 28px; font-weight: bold; color: white;">00</span>
+                <span style="color: white; font-size: 12px; display: block;">Hours</span>
+            </div>
+            <div>
+                <span id="minutes" style="font-size: 28px; font-weight: bold; color: white;">00</span>
+                <span style="color: white; font-size: 12px; display: block;">Mins</span>
+            </div>
+            <div>
+                <span id="seconds" style="font-size: 28px; font-weight: bold; color: white;">00</span>
+                <span style="color: white; font-size: 12px; display: block;">Secs</span>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+	<!-- END  HOME -->
+
+	<!-- START SEARCH -->
+
+	<!-- START NEWSLETTER -->
+	
+	<!-- END NEWSLETTER -->
+
+
+  <!-- START FOOTER -->
+	<footer class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="footer_social">
+						<ul>
+							<li><a data-toggle="tooltip" data-placement="top" title="TikTok" href="https://www.tiktok.com/@thebalafamilyofficial?_r=1&_t=ZS-95cb2WuCRdM"><i class="fa fa-video-camera"></i></a></li>
+							<li><a data-toggle="tooltip" data-placement="top" title="TikTok" href="https://www.facebook.com/share/1LjXENo9iF/?mibextid=wwXIfr"><i class="fa fa-video-camera"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+    <div class="col-lg-12">
+        <p class="footer_copyright">Bala Family — Coming Soon</p>
+    </div>
+</div>
+</div>
+	</footer>
+	<!-- END FOOTER -->
+
+	<!-- Latest jQuery -->
+	<script src="assets/js/jquery-1.12.4.min.js"></script>
+	<!-- Latest compiled and minified Bootstrap -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- modernizer JS -->
+	<script src="assets/js/modernizr-2.8.3.min.js"></script>
+	<!-- stellar js -->
+	<script src="assets/js/jquery.stellar.min.js"></script>
+	<!-- Menu js -->
+	<script src="assets/js/menu.js"></script>
+	<script src="assets/js/jquery.sticky.js"></script>
+	<!-- owl-carousel min js  -->
+	<script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+	<!-- MAGNIFICANT JS -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- Slick JS -->
+	<script src="assets/js/slick.min.js"></script>
+	<!-- jquery mixitup min js -->
+	<script src="assets/js/jquery.mixitup.js"></script>
+	<!-- jquery.prettyPhoto js -->
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+	<!-- scrolltopcontrol js -->
+	<script src="assets/js/scrolltopcontrol.js"></script>
+	<!-- WOW - Reveal Animations When You Scroll -->
+	<script src="assets/js/wow.min.js"></script>
+	<!-- scripts js -->
+	<script src="assets/js/scripts.js"></script>
+
+	<script>
+// Set the launch date (change this to the actual launch date)
+// countdown timer logic
+// calculates time difference between now and launch date
+// updates every second (setInterval 1000ms)
+// stops automatically when launch date is reached
+    const launchDate = new Date("May 1, 2026 00:00:00").getTime();
+
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (86400000)) / (3600000));
+        const minutes = Math.floor((distance % (3600000)) / (60000));
+        const seconds = Math.floor((distance % (60000)) / 1000);
+
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.querySelector(".countdown-timer").innerHTML = "<h3>We've Launched!</h3>";
+        }
+    }, 1000);
+</script>
+<!-- popup menu = 3 bar menu -->
+<!-- hidden by default (display: none) -->
+<!-- appears when user clicks menu icon (openMenu function) -->
+<!-- contains: About Bala Family paragraph + Email signup form -->
+<div id="menuPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 20000; align-items: center; justify-content: center;">
+    <div style="background: white; max-width: 500px; width: 90%; padding: 40px; border-radius: 20px; text-align: center; position: relative;">
+        <span onclick="closeMenu()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer;">&times;</span>
+        <h2 style="color: #333;">About The Bala Family</h2>
+        <p style="color: #555;">Music brought them fame, but family kept them grounded. The Bala Family has opened their hearts and home to South Africa. As they step into this next season, they invite you to walk with them.</p>
+        <hr>
+
+<!-- email signup form -->
+<!-- button starts grey, turns black when valid email entered -->
+<!-- shows error message if email format is wrong -->
+        <h3 style="color: #333;">Get Updates</h3>
+        <form id="emailForm" onsubmit="return false;">
+    <input type="email" id="userEmail" placeholder="Your Email Address" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid lightgrey; border-radius: 5px;" required>
+    <button type="submit" id="subscribeBtn" style="background: grey; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: not-allowed; transition: 0.3s;" disabled>Subscribe</button>
+    <p id="errorMsg" style="color: red; font-size: 14px; margin-top: 8px; display: none;">Please enter a valid email address (e.g., name@example.com)</p>
+</form>
+
+<script>
+// email validation and button behaviour
+// application requires valid email format: name@domain.com
+// button enables/disables based on input
+    const emailInput = document.getElementById('userEmail');
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function validateEmail(email) {
+    // Must have @
+    if (email.indexOf('@') === -1) return false;
+    
+    // Get everything after @
+    const domain = email.split('@')[1];
+    if (!domain) return false;
+    
+    // Must have a dot in the domain
+    if (domain.indexOf('.') === -1) return false;
+    
+    // Get last part after final dot (e.g., "co" from "gmail.co")
+    const parts = domain.split('.');
+    const lastPart = parts[parts.length - 1];
+    
+    // Last part must be at least 2 letters AND not just "co" by itself
+    // Valid: com, za, uk, org, net, co.za (but co alone is invalid)
+    if (lastPart.length < 2) return false;
+    
+    // Specifically reject if last part is "co" and nothing after it
+    if (lastPart === 'co' && parts.length === 2) return false;
+    
+    return true;
+}
+    emailInput.addEventListener('input', function() {
+        const email = emailInput.value;
+        if (validateEmail(email)) {
+            subscribeBtn.style.background = '#000000';
+            subscribeBtn.style.cursor = 'pointer';
+            subscribeBtn.disabled = false;
+            errorMsg.style.display = 'none';
+        } else {
+            subscribeBtn.style.background = '#555555';
+            subscribeBtn.style.cursor = 'not-allowed';
+            subscribeBtn.disabled = true;
+            if (email.length > 0) {
+                errorMsg.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'none';
+            }
+        }
+    });
+
+    subscribeBtn.addEventListener('click', function() {
+        if (!subscribeBtn.disabled) {
+            alert('Thank you! We\'ll notify you when we launch.');
+            document.getElementById('emailForm').reset();
+            subscribeBtn.disabled = true;
+            subscribeBtn.style.background = '#555555';
+            subscribeBtn.style.cursor = 'not-allowed';
+            errorMsg.style.display = 'none';
+        }
+    });
+</script>
+    </div>
+</div>
+<script>
+// popup menu controls
+// openMenu: shows popup (display: flex)
+// closeMenu: hides popup (display: none)
+    function openMenu() {
+        document.getElementById("menuPopup").style.display = "flex";
+    }
+    function closeMenu() {
+        document.getElementById("menuPopup").style.display = "none";
+    }
+</script>
+</body>
+
+</html>
