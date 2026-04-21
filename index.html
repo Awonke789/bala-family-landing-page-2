@@ -173,18 +173,9 @@ body, html {
 
 <!-- 3-bar menu icon - top right -->
 <!-- Click opens popup with about text and email form -->
-<!-- Hidden on mobile to avoid overlap with navbar menu -->
-<div class="menu-icon" onclick="openMenu()" style="position: fixed; top: 50px; right: 20px; z-index: 10000; cursor: pointer; display: none;" id="customMenuIcon">
+<div class="menu-icon" onclick="openMenu()" style="position: fixed; top: 50px; right: 20px; z-index: 10000; cursor: pointer;">
     <i class="fa fa-bars" style="color: white; font-size: 32px;"></i>
 </div>
-
-<style>
-    @media (min-width: 992px) {
-        #customMenuIcon {
-            display: block !important;
-        }
-    }
-</style>
 
 <!-- social media icons - middle right -->
 <!-- Instagram, TikTok, Facebook - to open in new tabs -->
@@ -221,10 +212,10 @@ body, html {
 					<nav class="site-navigation position-relative text-right" role="navigation">
 					</nav>
 				</div>
-				<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
-					<a href="#" class="site-menu-toggle js-menu-toggle float-right"><span
-							class="icon-menu h3"></span></a>
-				</div>
+					<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px; display: none;">
+						<a href="#" class="site-menu-toggle js-menu-toggle float-right"><span
+								class="icon-menu h3"></span></a>
+					</div>
 			</div>
 		</div>
 	</header>
