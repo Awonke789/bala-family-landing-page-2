@@ -48,6 +48,10 @@
     .countdown-timer div div {
         color: white;
     }
+    /* Hide the template's mobile menu icon */
+.site-mobile-menu a, .js-menu-toggle {
+    display: none !important;
+}
 </style>
 
 <!-- navigation styles */ -->
@@ -156,6 +160,21 @@ body, html {
 .countdown-timer, .countdown-timer * {
     font-family: 'Georgia', serif;
 }
+/* Dark overlay to make text readable */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+#home .container {
+    position: relative;
+    z-index: 2;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <!-- Modern Icons for Social Media -->
@@ -165,16 +184,11 @@ body, html {
 
 <body data-spy="scroll" data-offset="80">
     
-<!-- for logo to not move and stay in place, z-index = stay above everything -->
-<!-- logo - top Left -->
-     <div style="position: fixed; top: 50px; left: 20px; z-index: 9999;">
-    <div style="color: white; font-size: 30px; font-weight: bold; letter-spacing: 4px; text-transform: capitalize;">The Bala Family</div>
-</div>
 
-<!-- 3-bar menu icon - top right -->
+<!-- email icon - top right -->
 <!-- Click opens popup with about text and email form -->
 <div class="menu-icon" onclick="openMenu()" style="position: fixed; top: 50px; right: 20px; z-index: 10000; cursor: pointer;">
-    <i class="fa fa-bars" style="color: white; font-size: 32px;"></i>
+    <i class="fa fa-envelope" style="color: white; font-size: 32px;"></i>
 </div>
 
 <!-- social media icons - middle right -->
@@ -339,7 +353,7 @@ body, html {
 // calculates time difference between now and launch date
 // updates every second (setInterval 1000ms)
 // stops automatically when launch date is reached
-    const launchDate = new Date("May 1, 2026 00:00:00").getTime();
+    const launchDate = new Date("June 1, 2026 00:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
@@ -361,101 +375,36 @@ body, html {
         }
     }, 1000);
 </script>
-<!-- popup menu = 3 bar menu -->
+<!-- popup menu = email icon -->
 <!-- hidden by default (display: none) -->
-<!-- appears when user clicks menu icon (openMenu function) -->
-<!-- contains: About Bala Family paragraph + Email signup form -->
-<div id="menuPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 20000; align-items: center; justify-content: center; overflow-y: auto;">
-    <div style="background: white; max-width: 500px; width: 90%; padding: 40px; border-radius: 20px; text-align: center; position: relative; margin: auto;">
-        <span onclick="closeMenu()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; z-index: 20001;">&times;</span>
-        <h2 style="color: #333;">About The Bala Family</h2>
-        <p style="color: #555;">Music brought them fame, but family kept them grounded. The Bala Family has opened their hearts and home to South Africa. As they step into this next season, they invite you to walk with them.</p>
-        <hr>
-
-<!-- email signup form -->
-<!-- button starts grey, turns black when valid email entered -->
-<!-- shows error message if email format is wrong -->
-        <h3 style="color: #333;">Get Updates</h3>
-        <form id="emailForm" onsubmit="return false;">
-    <input type="email" id="userEmail" placeholder="Your Email Address" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid lightgrey; border-radius: 5px;" required>
-    <button type="submit" id="subscribeBtn" style="background: grey; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: not-allowed; transition: 0.3s;" disabled>Subscribe</button>
-    <p id="errorMsg" style="color: red; font-size: 14px; margin-top: 8px; display: none;">Please enter a valid email address (e.g., name@example.com)</p>
-</form>
-
+<!-- appears when user clicks the email icon -->
+<!-- contains: About Bala Family paragraph + Email to get updates about the family -->
+<div id="menuPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 20000; align-items: center; justify-content: center;">
+    <div style="background: white; max-width: 500px; width: 90%; padding: 40px; border-radius: 20px; text-align: center; position: relative;">
+        
 <script>
-// email validation and button behaviour
-// application requires valid email format: name@domain.com
-// button enables/disables based on input
-    const emailInput = document.getElementById('userEmail');
-    const subscribeBtn = document.getElementById('subscribeBtn');
-    const errorMsg = document.getElementById('errorMsg');
-
-    function validateEmail(email) {
-    // Must have @
-    if (email.indexOf('@') === -1) return false;
-    
-    // Get everything after @
-    const domain = email.split('@')[1];
-    if (!domain) return false;
-    
-    // Must have a dot in the domain
-    if (domain.indexOf('.') === -1) return false;
-    
-    // Get last part after final dot (e.g., "co" from "gmail.co")
-    const parts = domain.split('.');
-    const lastPart = parts[parts.length - 1];
-    
-    // Last part must be at least 2 letters AND not just "co" by itself
-    // Valid: com, za, uk, org, net, co.za (but co alone is invalid)
-    if (lastPart.length < 2) return false;
-    
-    // Specifically reject if last part is "co" and nothing after it
-    if (lastPart === 'co' && parts.length === 2) return false;
-    
-    return true;
-}
-    emailInput.addEventListener('input', function() {
-        const email = emailInput.value;
-        if (validateEmail(email)) {
-            subscribeBtn.style.background = '#000000';
-            subscribeBtn.style.cursor = 'pointer';
-            subscribeBtn.disabled = false;
-            errorMsg.style.display = 'none';
-        } else {
-            subscribeBtn.style.background = '#555555';
-            subscribeBtn.style.cursor = 'not-allowed';
-            subscribeBtn.disabled = true;
-            if (email.length > 0) {
-                errorMsg.style.display = 'block';
-            } else {
-                errorMsg.style.display = 'none';
-            }
-        }
-    });
-
-    subscribeBtn.addEventListener('click', function() {
-        if (!subscribeBtn.disabled) {
-            alert('Thank you! We\'ll notify you when we launch.');
-            document.getElementById('emailForm').reset();
-            subscribeBtn.disabled = true;
-            subscribeBtn.style.background = '#555555';
-            subscribeBtn.style.cursor = 'not-allowed';
-            errorMsg.style.display = 'none';
-        }
-    });
-</script>
-    </div>
-</div>
-<script>
-// popup menu controls
-// openMenu: shows popup (display: flex)
-// closeMenu: hides popup (display: none)
     function openMenu() {
         document.getElementById("menuPopup").style.display = "flex";
     }
     function closeMenu() {
         document.getElementById("menuPopup").style.display = "none";
     }
+</script>
+
+</body>
+</html>
+        <span onclick="closeMenu()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer;">&times;</span>
+        <h2 style="color: darkgrey;">About The Bala Family</h2>
+        <p style="color: dimgrey;">Music brought them fame, but family kept them grounded. The Bala Family has opened their hearts and home to South Africa. As they step into this next season, they invite you to walk with them.</p>
+        <hr>
+
+<!-- email updates info -->
+        <h3 style="color: darkgrey;">Get Updates & Info</h3>
+<p style="color: dimgrey; margin: 20px 0;">For updates or any inquiries, please email us at:</p>
+<p style="background: black; padding: 12px; border-radius: 8px; font-size: 18px; word-break: break-all;">
+    <a href="mailto:info@balafamily.co.za" style="color: white; text-decoration: none;">info@balafamily.co.za</a>
+</p>
+<p style="color: dimgrey; font-size: 12px; margin-top: 20px;">We'll get back to you as soon as possible.</p>
 </script>
 </body>
 
